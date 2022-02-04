@@ -15,8 +15,9 @@ class PostController extends Controller
         return view('admin.posts.index', compact('posts'));
     }
 
-    public function create()
+    public function creates()
     {
+        dd('Teste');
         return view('admin.posts.create');
     }
 
@@ -25,6 +26,14 @@ class PostController extends Controller
         Post::create($request->all());
         
         return redirect()->route('posts.index');
+    }
+
+    public function show($id)
+    {
+        if (!$post = Post::find($id)) {
+            return redirect()->route('posts.index');
+        }
+        return view ('admin.posts.show', compact('post'));
     }
 
 }

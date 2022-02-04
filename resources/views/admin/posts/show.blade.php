@@ -46,16 +46,13 @@
                         </g>
                     </svg>
                 </div>
-
-                <a href="{{ route('posts.create') }}" class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">Criar Novo Post</a>
-
-                <h1>Posts</h1>
-                
-                @foreach ($posts as $post)
-                    <p>
-                        {{ $post->title }} 
-                        [ <a href="{{ route('posts.show', $post->id) }}">Ver Detalhes </a> ]</p>
-                @endforeach                
+                    <h1> Detalhes do Post {{ $post->title }}</h1>
+                    <p></p>
+                    <ul> 
+                        <li>{{ $post->title}}</li>
+                        <li>{{ $post->content}}</li>
+                    </ul>
+               
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
